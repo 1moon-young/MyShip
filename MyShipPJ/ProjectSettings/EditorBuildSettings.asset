@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/G_ToTheMoon.unity
     guid: 3c1c18800fe8c2943afeeb6d166c7e3c
+  - enabled: 1
+    path: Assets/Scenes/G_SnakeGame.unity
+    guid: 4edc753dc8eb3a547aacaa40dfaae301
+  - enabled: 1
+    path: Assets/Scenes/G_ColorGame.unity
+    guid: f53928b5fdc40114198a04be629a4c74
   m_configObjects: {}
