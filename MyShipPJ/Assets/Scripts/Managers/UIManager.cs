@@ -80,9 +80,6 @@ public class UIManager : MonoBehaviour
     public GameObject selectedFood;
     public TextMeshProUGUI selectedFoodTxt;
 
-    [Header("others")]
-    public GameObject TriumphsPanel;
-
     private void Start()
     {
         Screen.orientation = ScreenOrientation.Portrait;

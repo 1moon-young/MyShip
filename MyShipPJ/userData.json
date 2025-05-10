@@ -1,0 +1,205 @@
+{
+    "ship_level": 1,
+    "coin": 2982,
+    "foods": [
+        {
+            "index": 0,
+            "name": "hotdog",
+            "kr_name": "핫도그",
+            "cost": 3,
+            "fullness": 3,
+            "favor": 5,
+            "descript": "싸구려 소시지가 들어간 핫도그. 이런게 당길 때가 있다.",
+            "count": 13
+        },
+        {
+            "index": 1,
+            "name": "pasta",
+            "kr_name": "파스타",
+            "cost": 5,
+            "fullness": 15,
+            "favor": 7,
+            "descript": "시판 소스로 만든 원팬 파스타. 라면만큼 쉽지만 더 건강하다.",
+            "count": 19
+        },
+        {
+            "index": 2,
+            "name": "gangyebab",
+            "kr_name": "간장계란밥",
+            "cost": 1000,
+            "fullness": 20,
+            "favor": 4,
+            "descript": "따끈한 밥에 반숙 계란과 간장과 참기름. 변치 않는 스테디셀러.",
+            "count": 1
+        }
+    ],
+    "characters": [
+        {
+            "id": 0,
+            "name": "Jay",
+            "kr_name": "제이",
+            "cost": 0,
+            "level": 6,
+            "favor": 261,
+            "fullness": 0,
+            "energy": 100,
+            "locked": 0,
+            "unlockDate": "2025-01-30",
+            "howToGet": "우주선 탑승 시 획득 가능.",
+            "introduction": "늘 무표정한 우주비행사. 어릴 적 선장이 데려와 키웠다고 한다.",
+            "script": [
+                "레벨 1 대사",
+                "레벨 2 대사",
+                "레벨 3 대사",
+                "레벨 4 대사",
+                "레벨 5 대사",
+                "레벨 6 대사",
+                "레벨 7 대사",
+                "레벨 8 대사"
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Herpa",
+            "kr_name": "헤르파",
+            "cost": 20,
+            "level": 5,
+            "favor": 126,
+            "fullness": 0,
+            "energy": 0,
+            "locked": 0,
+            "unlockDate": "2025-02-01",
+            "howToGet": "",
+            "introduction": "뛰어난 실력의 정비사. 원래 제국군의 정비사였다.",
+            "script": [
+                "재밌지 않아? 100년도 채 못사는 우리가 빛이 몇백년동안 가는 거리를 이렇데 단숨에 가다니",
+                "레벨 2 대사",
+                "레벨 3 대사",
+                "레벨 4 대사",
+                "레벨 5 대사",
+                "레벨 6 대사",
+                "레벨 7 대사",
+                "레벨 8 대사"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Captain",
+            "kr_name": "선장",
+            "cost": 0,
+            "level": 6,
+            "favor": 14,
+            "fullness": 8,
+            "energy": 100,
+            "locked": 1,
+            "unlockDate": "9",
+            "howToGet": "선박 레벨 3레벨 달성 시 획득.",
+            "introduction": "OO의 선장. 주로 실험 가운을 입고 다닌다. 무슨 생각을 하는 지 도통 알 수 없다.",
+            "script": [
+                "달을 향해 쏘렴. 빗나가도 별이 될테니.",
+                "0.00000028%가 일어나는 건 기적이지. 그리고 이건 네가 지금의 너로 존재할 확률이야.",
+                "별의 탄생과 죽음은 무한히 일어나지만 그걸 살아서 볼 확률은 제로에 가깝지.",
+                "레벨 4 대사",
+                "레벨 5 대사",
+                "레벨 6 대사",
+                "레벨 7 대사",
+                "레벨 8 대사"
+            ]
+        }
+    ],
+    "games": [
+        {
+            "id": 0,
+            "name": "StairwayToHeaven",
+            "kr_name": "천국의계단",
+            "descript": " 우주선에서는 운동 부족, 근손실이 오기 쉽죠. 천국의 계단으로 체력을 키워보세요! ",
+            "high_score": 786
+        },
+        {
+            "id": 1,
+            "name": "FlappySeaman",
+            "kr_name": "협곡통과",
+            "descript": " 중력이 엄청나게 강한 행성에 긴급 착륙합니다. 이런! 심지어 협곡을 통과해야 합니다. ",
+            "high_score": 126
+        }
+    ],
+    "wallpapers": [
+        {
+            "id": 0,
+            "name": "basic",
+            "kr_name": "basic",
+            "descript": "",
+            "howToGet": "bbbbbbbbbbbbbbasic0",
+            "locked": 0,
+            "getDate": "2025-01-26",
+            "cost": 0,
+            "roomNum": 0
+        },
+        {
+            "id": 2,
+            "name": "basic",
+            "kr_name": "basic",
+            "descript": "",
+            "howToGet": "bbbbbbbbbbbbbbasic0",
+            "locked": 0,
+            "getDate": "2025-01-26",
+            "cost": 0,
+            "roomNum": 1
+        },
+        {
+            "id": 3,
+            "name": "modern",
+            "kr_name": "모던",
+            "descript": "무채색의 심플한 액자와 선반으로 꾸민 모던한 개인실.",
+            "howToGet": "100코인으로 구매 가능.",
+            "locked": 0,
+            "getDate": "2025-01-26",
+            "cost": 100,
+            "roomNum": 1
+        },
+        {
+            "id": 4,
+            "name": "test2",
+            "kr_name": "test2",
+            "descript": "",
+            "howToGet": "1test222222222.",
+            "locked": 0,
+            "getDate": "2025-01-26",
+            "cost": 150,
+            "roomNum": 1
+        },
+        {
+            "id": 5,
+            "name": "basic",
+            "kr_name": "basic",
+            "descript": "",
+            "howToGet": "bbbbbbbbbbbbbbasic0",
+            "locked": 0,
+            "getDate": "2025-01-26",
+            "cost": 0,
+            "roomNum": 2
+        },
+        {
+            "id": 6,
+            "name": "simpleCute",
+            "kr_name": "심플큐트",
+            "descript": "파스텔 톤의 귀여운 느낌을 내보려 했으나 색감이 떨어져 망한 식당",
+            "howToGet": "100코인으로 구매 가능.",
+            "locked": 0,
+            "getDate": "2025-01-27",
+            "cost": 100,
+            "roomNum": 2
+        },
+        {
+            "id": 7,
+            "name": "test2",
+            "kr_name": "test2",
+            "descript": "",
+            "howToGet": "1test222222222.",
+            "locked": 1,
+            "getDate": "",
+            "cost": 0,
+            "roomNum": 2
+        }
+    ]
+}

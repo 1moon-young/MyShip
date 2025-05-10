@@ -74,7 +74,8 @@ public class STHManager : MonoBehaviour
     public GameObject gameOverPanel, reStartBtn, returnBtn;
     public TextMeshProUGUI overTxt, overScoreTxt, HighScoreTxt;
     bool pause = false;
-    
+
+
 
     void Start()
     {
@@ -139,6 +140,7 @@ public class STHManager : MonoBehaviour
             Action(1);
         }
 
+
         // 배경 색 변환
         Color targetColor = GetTargetColor(score);
         Color targetColorCloud = GetTargetColorCloud(score);
@@ -150,6 +152,7 @@ public class STHManager : MonoBehaviour
         bg2.GetChild(0).GetComponent<SpriteRenderer>().color = Color.Lerp(bg2.GetChild(0).GetComponent<SpriteRenderer>().color, targetColorCloud, Time.deltaTime * 2);
 
     }
+
 
     // 제한시간 감소 코루틴
     IEnumerator UpTimeLimit()

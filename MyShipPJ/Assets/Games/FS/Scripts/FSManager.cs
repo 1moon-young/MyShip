@@ -36,8 +36,6 @@ public class FSManager : MonoBehaviour
 
     public GameObject coinPrefab;
 
-    public GameObject startBtn;
-
     [Header("GameTopBar & GameOverPanel")]
     public GameObject gameTopBar, topBar, gameOverPanel, reStartBtn, returnBtn;
     public TextMeshProUGUI scoreTxt, coinTxt, overCoinTxt, overTxt, overScoreTxt, overHighScoreTxt;
@@ -57,16 +55,9 @@ public class FSManager : MonoBehaviour
         pillarSpawnsPos[1] = pillarSpawns[1].position;
         pillarSize = pillarPrefabs[0].GetComponent<SpriteRenderer>().bounds.size;
 
-        Time.timeScale = 0;
-
         StartCoroutine("CreatePillarRoutine");
         StartCoroutine("SpeedUpRoutine");
         StartCoroutine("ScoreUpRoutine");
-    }
-
-    public void GameStart(GameObject startBtn){
-        Time.timeScale = 1;
-        Destroy(startBtn);
     }
 
     // 기둥 & 코인 생성 코루틴
@@ -185,8 +176,6 @@ public class FSManager : MonoBehaviour
     // 게임 오버
     public void GameOver(bool isOver)
     {
-
-        Destroy(startBtn);
         DataManager.instance.saveData();
         Time.timeScale = 0;
 

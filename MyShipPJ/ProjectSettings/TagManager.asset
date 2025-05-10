@@ -8,6 +8,11 @@ TagManager:
   - RefrigeratorScrollRect
   - Coin
   - Obstacle
+  - BulletWall
+  - Enemy
+  - PlayerBullet
+  - EnemyBullet
+  - SpawnPointGroup
   layers:
   - Default
   - TransparentFX
@@ -59,4 +64,7 @@ TagManager:
     locked: 0
   - name: FrontUI
     uniqueID: 2963730387
+    locked: 0
+  - name: BgStar
+    uniqueID: 3483350097
     locked: 0

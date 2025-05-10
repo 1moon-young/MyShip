@@ -31,10 +31,8 @@ public class DataManager : MonoBehaviour
     DatabaseReference dbref;
     Firebase.FirebaseApp app;
 
-    private string webClientId = "369182402609-laecu4int0pnrrj9u269dqvbmedr360b.apps.googleusercontent.com";
-
-    public Firebase.Auth.FirebaseAuth auth;
-    public FirebaseUser user;
+    private string webClientId = "369182402609-nic6rvbt5vttsa83rmoeaujohhd76j3t.apps.googleusercontent.com";
+    Firebase.Auth.FirebaseAuth auth;
     GoogleSignInConfiguration configuration;
 
     // json
@@ -50,17 +48,18 @@ public class DataManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
-
-        configuration = new GoogleSignInConfiguration { WebClientId = webClientId, RequestEmail = true, RequestIdToken = true };
-        CheckFirebaseDependencies();
     }
 
     void Start()
     {
         userData = new UserData();
         path = Application.persistentDataPath + "/";
-        Debug.Log(path);
 
+        Debug.Log(path);
+        configuration = new GoogleSignInConfiguration { WebClientId = webClientId, RequestEmail = true, RequestIdToken = true };
+
+        CheckFirebaseDependencies();
+        Debug.Log(path);
         // FirebaseInit();
         loadData();
         CharacterSort();
@@ -77,7 +76,7 @@ public class DataManager : MonoBehaviour
                    if (task.Result == DependencyStatus.Available)
                    {
                        auth = FirebaseAuth.DefaultInstance;
-                       Debug.Log(auth + "Firebase 초기화 성공!");
+                       Debug.Log("Firebase 초기화 성공!");
                    }
 
                    else
@@ -95,42 +94,32 @@ public class DataManager : MonoBehaviour
 
     private void OnSignIn()
     {
+        GoogleSignIn.Configuration = new GoogleSignInConfiguration
+        {
+            WebClientId = webClientId,  // Firebase에서 제공하는 Web Client ID
+            RequestIdToken = true,
+            RequestEmail = true,    
+            UseGameSignIn = false
+        };
 
-        GoogleSignIn.Configuration = configuration;
-        GoogleSignIn.Configuration.UseGameSignIn = false;
-        GoogleSignIn.Configuration.RequestIdToken = true;
         Debug.Log("Calling SignIn");
-        GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished, TaskScheduler.FromCurrentSynchronizationContext());
 
+        GoogleSignIn.DefaultInstance.SignIn().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Sign-in Failed");
+                foreach (Exception e in task.Exception.InnerExceptions)
+                    Debug.LogError("Exception: " + e.Message + " StackTrace: " + e.StackTrace);
 
-        // GoogleSignIn.Configuration = new GoogleSignInConfiguration
-        // {
-        //     WebClientId = webClientId,  // Firebase에서 제공하는 Web Client ID
-        //     RequestIdToken = true,
-        //     RequestEmail = true,
-        //     UseGameSignIn = false
-        // };
+            }
+            else if (task.IsCanceled)
+                Debug.Log("Sign-in Canceled");
 
-        // Debug.Log("Calling SignIn");
+            else
+                Debug.Log("Sign-in Success: " + task.Result.DisplayName);
 
-        // GoogleSignIn.DefaultInstance.SignIn().ContinueWith(task =>
-        // {
-        //     if (task.IsFaulted)
-        //     {
-        //         Debug.Log("Sign-in Failed");
-        //         foreach (Exception e in task.Exception.InnerExceptions)
-        //             Debug.LogError("Exception: " + e.Message + " StackTrace: " + e.StackTrace);
-
-        //     }
-        //     else if (task.IsCanceled)
-        //         Debug.Log("Sign-in Canceled");
-
-        //     else
-        //         Debug.Log("Sign-in Success: " + task.Result.DisplayName);
-
-        // });
-
-
+        });
         // GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished);
     }
 
@@ -217,6 +206,9 @@ public class DataManager : MonoBehaviour
         GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished);
     }
 
+
+
+
     // 걍 json
     public void loadData()
     {
@@ -242,6 +234,35 @@ public class DataManager : MonoBehaviour
                             .ThenBy(c => c.locked == 0 ? DateTime.Parse(c.unlockDate) : DateTime.MaxValue) // Locked == 0인 경우 Date로 정렬
                             .ToList();
     }
+
+    // 파이어베이스 초기화 
+    // public void FirebaseInit()
+    // {
+    //     Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+    //     {
+    //         var dependencyStatus = task.Result;
+    //         if (dependencyStatus == Firebase.DependencyStatus.Available)
+    //         {
+    //             // Create and hold a reference to your FirebaseApp,
+    //             // where app is a Firebase.FirebaseApp property of your application class.
+    //             app = Firebase.FirebaseApp.DefaultInstance;
+    //             auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+
+    //             // app 내가 임의로 선언함..
+
+    //             // Set a flag here to indicate whether Firebase is ready to use by your app.
+    //         }
+    //         else
+    //         {
+    //             UnityEngine.Debug.LogError(System.String.Format(
+    //               "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
+    //             // Firebase Unity SDK is not safe to use here.
+    //         }
+    //     });
+
+
+    // }
+
 
     // public void GetGoogleToken(string googleIdToken, string googleAccessToken)
     // {
