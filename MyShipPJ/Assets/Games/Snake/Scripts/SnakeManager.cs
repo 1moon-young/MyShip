@@ -51,6 +51,7 @@ public class SnakeManager : MonoBehaviour
     {
         GameManager.instance.returnFromGame = true;
         game = DataManager.instance.userData.games[PlayerPrefs.GetInt("CurGame")];
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         SpawnFood();
     }
 
