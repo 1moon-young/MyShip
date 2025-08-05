@@ -132,6 +132,12 @@ public class UIManager : MonoBehaviour
         AudioManager.instance.PlaySFX(AudioManager.SFXClip.CLICK);
         popupPanel.SetActive(true);
     }
+    /* 배경 음악 설정 버튼 누를시 소리만 내기 */
+    public void OnlySound()
+    {
+        AudioManager.instance.PlaySFX(AudioManager.SFXClip.CLICK);
+    }
+
 
     /** 2. 팝업 닫기 */
     public void ClosePopUp(GameObject popupPanel)

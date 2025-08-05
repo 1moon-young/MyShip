@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public float bgmVolume;
     public float sfxVolume;
-
+    public int curBgm;
     public AudioSource sfxSource;
     public AudioSource bgmSource;
 
@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] bgmClips;
 
     public enum SFXClip { NONE = -1, FAIL, EATTING, SLIDE, BUY, CLICK, SUCCESS, MAX }
-    public enum BGMClip { NONE = -1, When_I_Was_A_Boy, MAX }
+    public enum BGMClip { NONE = -1, When_I_Was_A_Boy = 0, Piano = 1, Demo = 2, MAX }
 
     public List<AudioSource> tempSources;
 
@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
         bgmSource.volume = bgmVolume;
         sfxSource.volume = sfxVolume;
 
-        int curBgm = PlayerPrefs.GetInt("curBGM",0);
+        curBgm = PlayerPrefs.GetInt("curBGM", 0);
         PlayBGM((BGMClip)curBgm);
         StartCoroutine(ClearTemp());
 
@@ -109,4 +109,31 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", value);
     }
 
+
+
+
+
+
+
+    public void Zero()
+    {
+        curBgm = 0;
+        PlayerPrefs.SetInt("curBGM", curBgm);
+        PlayBGM((BGMClip)curBgm);
+        StartCoroutine(ClearTemp());
+    }
+    public void One()
+    {
+        curBgm = 1;
+        PlayerPrefs.SetInt("curBGM", curBgm);
+        PlayBGM((BGMClip)curBgm);
+        StartCoroutine(ClearTemp());
+    }
+    public void Two()
+    {
+        curBgm = 2;
+        PlayerPrefs.SetInt("curBGM", curBgm);
+        PlayBGM((BGMClip)curBgm);
+        StartCoroutine(ClearTemp());
+    }
 }
